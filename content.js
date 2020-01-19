@@ -6,7 +6,7 @@ if (document.URL.indexOf("https://www.boyner.com.tr/sepet") >= 0) {
         console.log(tmpBasketItem);
         for (i = 0; i < tmpBasketItem.length; i++) {
             tmpBasketItem[i].style.backgroundColor = "red";
-          }          
+        }
         /*  let paragraphs = document.getElementsByTagName('p');
       
                for (elt of paragraphs) {
