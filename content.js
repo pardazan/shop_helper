@@ -16,7 +16,8 @@ if (document.URL.indexOf("https://www.boyner.com.tr/sepet") >= 0) {
             console.log("Price[" + i + "] : " + tmpBasketPrice[i].innerText)
         }
 /*
-this is just a test.
+this is just a test. (Added by Akbar-P)
+This new line is added by Pardazan
 */
         /*  let paragraphs = document.getElementsByTagName('p');
       
