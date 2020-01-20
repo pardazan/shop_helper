@@ -15,7 +15,9 @@ if (document.URL.indexOf("https://www.boyner.com.tr/sepet") >= 0) {
             tmpBasketPrice[i].style.backgroundColor = "white";
             console.log("Price[" + i + "] : " + tmpBasketPrice[i].innerText)
         }
-
+/*
+this is just a test.
+*/
         /*  let paragraphs = document.getElementsByTagName('p');
       
                for (elt of paragraphs) {
