@@ -1,5 +1,5 @@
 if (document.URL.indexOf("https://www.boyner.com.tr/sepet") >= 0) {
-    alert("شما در مرحله پایانی خرید هستید");
+    alert("شما اینک در مرحله پایانی خرید هستید");
     setTimeout(() => {
         let tmpBasketItem = document.getElementsByClassName("o-basket__item");
         console.log("Basket Items:");
@@ -13,9 +13,13 @@ if (document.URL.indexOf("https://www.boyner.com.tr/sepet") >= 0) {
         console.log(tmpBasketPrice);
         for (i = 0; i < tmpBasketPrice.length; i++) {
             tmpBasketPrice[i].style.backgroundColor = "white";
-            console.log("Price[" + i + "]" + tmpBasketPrice[i].innerText)
+            console.log("Price[" + i + "] : " + tmpBasketPrice[i].innerText)
         }
-
+/*
+this is just a test. (Added by Akbar-P)
+This new line is added by Pardazan
+Wait to add 3rd line? here it is!!
+*/
         /*  let paragraphs = document.getElementsByTagName('p');
       
                for (elt of paragraphs) {
