@@ -1,5 +1,5 @@
 if (document.URL.indexOf("https://www.boyner.com.tr/sepet") >= 0) {
-    alert("شما در مرحله پایانی خرید هستید");
+    alert("شما اینک در مرحله پایانی خرید هستید");
     setTimeout(() => {
         let tmpBasketItem = document.getElementsByClassName("o-basket__item");
         console.log("Basket Items:");
