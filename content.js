@@ -18,6 +18,7 @@ if (document.URL.indexOf("https://www.boyner.com.tr/sepet") >= 0) {
 /*
 this is just a test. (Added by Akbar-P)
 This new line is added by Pardazan
+Wait to add 3rd line? here it is!!
 */
         /*  let paragraphs = document.getElementsByTagName('p');
       
