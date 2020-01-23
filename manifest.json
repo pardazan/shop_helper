@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Shop Helper",
-    "version": "0.1",
+    "version": "0.2",
     "content_scripts": [
         {
             "matches": [
@@ -13,14 +13,17 @@
             ]
         }
     ],
+    "options_page": "templates/options.html",
     "permissions": [
-        "tabs"
-    ],
+        "tabs", "https://www.boyner.com.tr/sepet"
+      ],
     "browser_action": {
-        "default_icon": "icons/basket.png"       
+        "default_icon": "icons/basket.png",
+        "default_popup": "templates/popup.html"    
     },
     "icons": {
         "48": "icons/apcologo_48.png",
         "128": "icons/apcologo_128.png"
     }
+    
 }

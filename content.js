@@ -5,7 +5,7 @@ if (document.URL.indexOf("https://www.boyner.com.tr/sepet") >= 0) {
         console.log("Basket Items:");
         console.log(tmpBasketItem);
         for (i = 0; i < tmpBasketItem.length; i++) {
-            tmpBasketItem[i].style.backgroundColor = "green";
+            tmpBasketItem[i].style.backgroundColor = "Yellow";
         }
 
         let tmpBasketPrice = document.getElementsByClassName("o-productPrice__salePrice");
