@@ -1,4 +1,4 @@
-let Message = "Result:";
+let Message = "Result:\n";
 let tmpBasketItem = document.getElementsByClassName("o-basket__item");
 console.log("Basket Items:");
 console.log(tmpBasketItem);
@@ -17,3 +17,12 @@ for (i = 0; i < tmpBasketPrice.length; i++) {
 } 
 alert(Message);
 //Here we can send Message to any URL as a parameter
+
+//if want to add listener after click on extension's button:
+/* 
+document.getElementById('btnSendToOurSite').addEventListener('click', sendBasket);
+
+function sendBasket(){
+    alert ("We will send here")
+}
+ */
