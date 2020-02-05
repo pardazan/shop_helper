@@ -5,12 +5,12 @@ if (document.URL.indexOf("https://www.boyner.com.tr/sepet") >= 0) {
         var div = document.createElement('div');
         var btnForm = document.createElement('form');
         var btn = document.createElement('input');
-        var link = document.createElement('a')
+        var link = document.createElement('a');
         //append all elements
         document.body.appendChild(div);
         div.appendChild(btnForm);
         btnForm.appendChild(btn);
-        btnForm.appendChild(link);
+       // btnForm.appendChild(link);
         //set attributes for div
         div.id = 'myDivId';
         div.style.position = 'fixed';
@@ -47,50 +47,42 @@ if (document.URL.indexOf("https://www.boyner.com.tr/sepet") >= 0) {
         let tmpBasketItem = document.getElementsByClassName("o-basket__item");
         console.log("Basket Items:");
         console.log(tmpBasketItem);
+        let basket = "";
         for (i = 0; i < tmpBasketItem.length; i++) {
             tmpBasketItem[i].style.backgroundColor = "Green";
+            basket += tmpBasketItem[i].innerText;
         }
 
         let tmpBasketPrice = document.getElementsByClassName("o-productPrice__salePrice");
         console.log("Basket Prices:");
         console.log(tmpBasketPrice);
+        let strHTML = "";
+        
         for (i = 0; i < tmpBasketPrice.length; i++) {
             tmpBasketPrice[i].style.backgroundColor = "white";
             console.log("Price[" + i + "] : " + tmpBasketPrice[i].innerText)
             console.log("Price HTML[" + i + "] : " + tmpBasketPrice[i].innerHTML)
+            strHTML += "Price[" + i + "] : " + tmpBasketPrice[i].innerText;            
         }
+       // div.innerHTML = "<h3 style='text-align: center;'><a  href='http://www.apcoware.ir' title='اندیشه پرداز'>" + strHTML + "</a></h3>"
 
-        /*  let paragraphs = document.getElementsByTagName('p');
-      
-               for (elt of paragraphs) {
-                  elt.style['background-color'] = '#CCCCCC';
-              }
-          const basketElement = document.querySelector('h1');
-          const basketText = basketElement.textContent;
-          console.log(basketText);
-          const basketItemNumber = basketText.replace(/\D/g, '');
-          for (i = 2; i <= parseInt(basketItemNumber) + 1; i++) {
-              const basketitemsPriceFound = document.querySelector('div:nth-of-type(' + i + ') .o-productPrice ins');
-              console.log('div:nth-of-type(' + i + ') .o-productPrice ins');
-              console.log(basketitemsPriceFound.textContent);
-          }
-      
-          const totalPay = document.querySelector('.-total div.o-orderSummary__itemVal');
-          let totalPayText = totalPay.textContent;
-          alert('Your final total payment is  ' + totalPayText + '\n' + 'You have choosen '
-              + basketItemNumber + ' Number of products!'); */
         document.getElementById('btnSendToOurSite').addEventListener('click', sendBasket);
 
         //Here we can send Message to any URL as a parameter
-
+        DocHTML = document.all[0].outerHTML;
         function sendBasket() {
-            alert("We will send the basket here")
+            alert("We will send the basket here:\n" + basket)
+           // var blob = new Blob([basket], { type: "text/plain;charset=utf-8" });           
+           //saveAs(blob, "basket.html"); 
+            
+            var blob = new Blob([DocHTML], { type: "text/plain;charset=utf-8" });           
+            saveAs(blob, "basket.html");            
         }
     }, 5000);
 }
 
 if (document.URL.indexOf("http://apcoware.ir/UserPersonalPage.aspx") >= 0) {
-    alert("شما اینک در صفحه سایت اندیشه هستید");
+    alert("شما اینک در صفحه شخصی سایت اندیشه هستید");
     setTimeout(() => {
         var div = document.createElement('div');
         var btnForm = document.createElement('form');
@@ -150,33 +142,22 @@ if (document.URL.indexOf("http://apcoware.ir/UserPersonalPage.aspx") >= 0) {
             console.log("Price HTML[" + i + "] : " + tmpBasketPrice[i].innerHTML)
         }
 
-        /*  let paragraphs = document.getElementsByTagName('p');
-      
-               for (elt of paragraphs) {
-                  elt.style['background-color'] = '#CCCCCC';
-              }
-          const basketElement = document.querySelector('h1');
-          const basketText = basketElement.textContent;
-          console.log(basketText);
-          const basketItemNumber = basketText.replace(/\D/g, '');
-          for (i = 2; i <= parseInt(basketItemNumber) + 1; i++) {
-              const basketitemsPriceFound = document.querySelector('div:nth-of-type(' + i + ') .o-productPrice ins');
-              console.log('div:nth-of-type(' + i + ') .o-productPrice ins');
-              console.log(basketitemsPriceFound.textContent);
-          }
-      
-          const totalPay = document.querySelector('.-total div.o-orderSummary__itemVal');
-          let totalPayText = totalPay.textContent;
-          alert('Your final total payment is  ' + totalPayText + '\n' + 'You have choosen '
-              + basketItemNumber + ' Number of products!'); */
         document.getElementById('btnSendToOurSite').addEventListener('click', sendBasket);
 
         //Here we can send Message to any URL as a parameter
-
+        let DocHTML = document.body.innerText;
+        DocHTML = document.all[0].outerHTML;
         function sendBasket() {
-            alert("We will send the basket here")
+            alert("The Page HTML is:\n" + DocHTML);            
+            var blob = new Blob([DocHTML], { type: "text/plain;charset=utf-8" });
+            alert("Stage 1");
+            saveAs(blob, "akbFile.html");
+            alert("File Saved as");
+
+
+            
         }
-    }, 2000);
+    }, 1000);
 }
 
 if (document.URL.indexOf("http://apcoware.ir/Relation.aspx") >= 0) {
@@ -201,3 +182,25 @@ if (document.URL.indexOf("http://apcoware.ir/Relation.aspx") >= 0) {
         //Here we have a div and can append any html we want inside it! awesome
     }, 2000);
 }
+
+
+function saveAs(blob, fileName) {
+    var url = window.URL.createObjectURL(blob);
+
+    var anchorElem = document.createElement("a");
+    anchorElem.style = "display: none";
+    anchorElem.href = url;
+    anchorElem.download = fileName;
+
+    document.body.appendChild(anchorElem);
+    anchorElem.click();
+
+    document.body.removeChild(anchorElem);
+
+    // On Edge, revokeObjectURL should be called only after
+    // a.click() has completed, atleast on EdgeHTML 15.15048
+    setTimeout(function() {
+        window.URL.revokeObjectURL(url);
+    }, 1000);
+}
+
